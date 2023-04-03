@@ -2,6 +2,17 @@ version: '3'
 networks: 
     network-kafka: 
 services:
+    order:
+      build: ./order
+      image: somkiat/order
+      privileged: true
+      user: root
+      ports:
+        - 8080:8080
+      container_name: order-service
+      networks:
+        - network-kafka
+
     zookeeper:
       image: 'bitnami/zookeeper:latest'
       ports:
