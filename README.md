@@ -47,11 +47,10 @@ Access to service
 * GET http://localhost:8080/order/all
 * POST http://localhost:8080/order
 
-### Observability
-* Application Metric with Actuator and [Prometheus](https://prometheus.io/)
-  * http://localhost:8080/actuator
-  * http://localhost:8080/actuator/health
-  * http://localhost:8080/actuator/prometheus
+## Observability
+
+### Distributed Tracing with Zipkin
+  * http://localhost:9411/
 
 ```
 $docker compose up -d zipkin
@@ -59,5 +58,29 @@ $docker compose ps
 $docker compose logs --follow
 ```
 
-* Distributed Tracing with Zipkin
-  * http://localhost:9411/
+### Application Metric with Actuator and [Prometheus](https://prometheus.io/)
+  * http://localhost:8080/actuator
+  * http://localhost:8080/actuator/health
+  * http://localhost:8080/actuator/prometheus
+
+```
+$docker compose up -d prometheus
+$docker compose ps
+$docker compose logs --follow
+```
+
+Open prometheus server
+* http://localhost:9090
+  * Go to menu `Status => Targets`
+
+Dashboard with [Grafana](https://grafana.com/)
+```
+$docker compose up -d grafana
+$docker compose ps
+$docker compose logs --follow
+```
+
+Open prometheus server
+* http://localhost:3000
+  * user=admin
+  * password=admin

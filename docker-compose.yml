@@ -20,6 +20,25 @@ services:
         - "9411:9411"
       networks:
         - network-kafka
+    
+    ### Prometheus and Grafana :: Application Metrics
+    prometheus:
+      image: prom/prometheus
+      ports:
+        - "9090:9090"
+      volumes:
+        - "./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml"
+      networks:
+        - network-kafka
+
+    grafana:
+      image: grafana/grafana-oss:8.5.2
+      ports:
+        - "3000:3000"
+      volumes:
+        - ./grafana/:/etc/grafana/provisioning
+      networks:
+        - network-kafka
 
     zookeeper:
       image: 'bitnami/zookeeper:latest'
