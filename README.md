@@ -32,6 +32,7 @@ With Docker
 $docker compose build order
 $docker compose up -d order
 $docker compose ps
+$docker compose logs --follow
 ```
 
 Stop all container
@@ -46,10 +47,17 @@ Access to service
 * GET http://localhost:8080/order/all
 * POST http://localhost:8080/order
 
-Observability
+### Observability
 * Application Metric with Actuator and [Prometheus](https://prometheus.io/)
   * http://localhost:8080/actuator
   * http://localhost:8080/actuator/health
   * http://localhost:8080/actuator/prometheus
+
+```
+$docker compose up -d zipkin
+$docker compose ps
+$docker compose logs --follow
+```
+
 * Distributed Tracing with Zipkin
   * http://localhost:9411/
