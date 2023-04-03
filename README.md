@@ -29,7 +29,7 @@ $./mvnw spring-boot:run
 
 With Docker
 ```
-$docker compose build
+$docker compose build order
 $docker compose up -d order
 $docker compose ps
 ```
@@ -51,3 +51,5 @@ Observability
   * http://localhost:8080/actuator
   * http://localhost:8080/actuator/health
   * http://localhost:8080/actuator/prometheus
+* Distributed Tracing with Zipkin
+  * http://localhost:9411/

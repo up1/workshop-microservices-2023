@@ -12,6 +12,14 @@ services:
       container_name: order-service
       networks:
         - network-kafka
+    
+    ### Zipkin :: Distributed Tracing
+    zipkin:
+      image: openzipkin/zipkin
+      ports:
+        - "9411:9411"
+      networks:
+        - network-kafka
 
     zookeeper:
       image: 'bitnami/zookeeper:latest'

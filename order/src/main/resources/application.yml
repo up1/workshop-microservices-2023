@@ -8,13 +8,13 @@ management:
     web:
       exposure:
         include: health,prometheus
+  zipkin:
+    tracing:
+      endpoint: http://zipkin:9411/api/v2/spans
 
 spring:
   application:
     name: order-service
-  zipkin:
-    baseUrl=http://zipkin:9411
   sleuth:
     sampler:
-      percentage=1:
-        0:
+      percentage: 1.0
