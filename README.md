@@ -85,3 +85,13 @@ Open prometheus server
 * http://localhost:3000
   * user=admin
   * password=admin
+
+### API testing with Postman
+* [newman](https://www.npmjs.com/package/newman)
+
+```
+$npm install -g newman
+
+$cd testing/api-postman
+$newman run order-service.postman_collection.json
+```
