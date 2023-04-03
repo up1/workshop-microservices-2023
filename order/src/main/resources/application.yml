@@ -1,3 +1,20 @@
 service:
   endpoints:
     inventory: http://inventory:9090/inventory-service
+
+# Actuator + Micrometer and Prometheus
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+
+spring:
+  application:
+    name: order-service
+  zipkin:
+    baseUrl=http://zipkin:9411
+  sleuth:
+    sampler:
+      percentage=1:
+        0:

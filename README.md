@@ -39,9 +39,15 @@ Stop all container
 $docker compose down
 ```
 
-Access to API specification with Swagger
+Access to API specification with [Swagger v2](https://springdoc.org/v2/)
 * http://localhost:8080/swagger-ui/index.html
 
 Access to service
 * GET http://localhost:8080/order/all
 * POST http://localhost:8080/order
+
+Observability
+* Application Metric with Actuator and [Prometheus](https://prometheus.io/)
+  * http://localhost:8080/actuator
+  * http://localhost:8080/actuator/health
+  * http://localhost:8080/actuator/prometheus
