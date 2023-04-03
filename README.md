@@ -74,6 +74,7 @@ Open prometheus server
   * Go to menu `Status => Targets`
 
 Dashboard with [Grafana](https://grafana.com/)
+* [More dashboard](https://grafana.com/grafana/dashboards/)
 ```
 $docker compose up -d grafana
 $docker compose ps
