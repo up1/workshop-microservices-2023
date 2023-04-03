@@ -1,0 +1,3 @@
+service:
+  endpoints:
+    inventory: http://inventory:9090/inventory-service
