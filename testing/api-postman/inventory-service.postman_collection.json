@@ -1,0 +1,44 @@
+{
+	"info": {
+		"_postman_id": "7c2543b6-96b9-42f0-b6dc-94444bec2cb2",
+		"name": "inventory-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1453931"
+	},
+	"item": [
+		{
+			"name": "Stock deduct",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/stock/deduct/a9112c62-0206-4711-beaf-220c2d1bbfb0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"stock",
+						"deduct",
+						"a9112c62-0206-4711-beaf-220c2d1bbfb0"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
