@@ -43,6 +43,7 @@ public class OrderService {
     private Order convertToEntity(OrderRequestDTO dto) {
         Order order = modelMapper.map(dto, Order.class);
 
+        // Call inventory service :: Stock deduct
         inventoryGateway.getInventoryItem(order.getItemId())
                 .map(i ->
                 {

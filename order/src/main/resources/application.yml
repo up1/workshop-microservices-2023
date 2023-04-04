@@ -1,6 +1,6 @@
 service:
   endpoints:
-    inventory: http://inventory:9090/inventory-service
+    inventory: http://inventory:4000
 
 # Actuator + Micrometer and Prometheus
 management:
@@ -14,10 +14,10 @@ management:
   zipkin:
     tracing:
       endpoint: http://zipkin:9411/api/v2/spans
+  tracing:
+    sampling:
+      probability: 1.0
 
 spring:
   application:
     name: order-service
-  sleuth:
-    sampler:
-      percentage: 1.0

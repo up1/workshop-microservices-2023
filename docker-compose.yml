@@ -13,6 +13,20 @@ services:
       networks:
         - network-kafka
     
+    inventory:
+      build: ./inventory
+      image: somkiat/inventory
+      privileged: true
+      user: root
+      ports:
+        - 4000:4000
+      container_name: inventory-service
+      environment:
+        - PORT=4000
+        - EXPORTER=zipkin
+      networks:
+        - network-kafka
+    
     ### Zipkin :: Distributed Tracing
     zipkin:
       image: openzipkin/zipkin

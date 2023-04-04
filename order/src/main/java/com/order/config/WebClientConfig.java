@@ -33,7 +33,8 @@ public class WebClientConfig {
                 .build();
 
         HttpClient client = HttpClient.create(provider)
-//                .wiretap(true); //log
+                .wiretap(true) //log
+                .metrics(true, s->s)
                 .responseTimeout(Duration.ofSeconds(20));
 
         ReactorClientHttpConnector conn = new ReactorClientHttpConnector(client);
