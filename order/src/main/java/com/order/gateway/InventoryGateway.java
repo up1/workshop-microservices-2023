@@ -4,8 +4,8 @@ import com.order.dto.ItemDTO;
 import io.micrometer.observation.Observation;
 import io.micrometer.observation.ObservationRegistry;
 import org.slf4j.LoggerFactory;
-import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
@@ -19,7 +19,10 @@ public class InventoryGateway {
     private static org.slf4j.Logger Logger = LoggerFactory.getLogger(InventoryGateway.class);
 
     @Autowired
-    private WebClient webClient;
+    private WebClient.Builder webClient;
+
+    @Value("${service.endpoints.inventory}")
+    private String baseUrl;
 
     @Autowired
     private ObservationRegistry registry;
@@ -30,9 +33,9 @@ public class InventoryGateway {
                 .observe(() -> {
                     Logger.info("Will send a request to the server");
                     return this.webClient
+                            .baseUrl(String.format("%s/stock/deduct/%s", baseUrl, itemId))
+                            .build()
                             .get()
-                            .uri(String.format("/stock/deduct/%s", itemId))
-                            .header("X-B3-TRACEID", MDC.get("X-B3-TraceId"))
                             .retrieve()
                             .bodyToMono(ItemDTO.class)
                             .timeout(Duration.ofMinutes(1l)); // Set timeout => resilience pattern

@@ -59,13 +59,14 @@ Access to service
 ## Observability
 
 ### Distributed Tracing with Zipkin
-  * http://localhost:9411/
 
 ```
 $docker compose up -d zipkin
 $docker compose ps
 $docker compose logs --follow
 ```
+Open Zipkin server in url=http://localhost:9411/
+
 
 ### Application Metric with Actuator and [Prometheus](https://prometheus.io/)
   * http://localhost:8080/actuator
@@ -90,10 +91,34 @@ $docker compose ps
 $docker compose logs --follow
 ```
 
+Open Grafana server
+* http://localhost:3000
+  * user=admin
+  * password=admin
+
+## Working with Grafana Platform
+* Log aggregation with [Loki](https://grafana.com/oss/loki/)
+* Dashboard with [Grafana](https://grafana.com)
+
+Log aggregation with Loki
+```
+$docker compose up -d loki
+$docker compose ps
+$docker compose logs --follow
+```
+
+Dashboard with Grafana
+```
+$docker compose up -d grafana
+$docker compose ps
+$docker compose logs --follow
+```
+
 Open prometheus server
 * http://localhost:3000
   * user=admin
   * password=admin
+
 
 ### API testing with Postman
 * [newman](https://www.npmjs.com/package/newman)

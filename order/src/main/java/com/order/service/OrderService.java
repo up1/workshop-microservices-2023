@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 @Service
 public class OrderService {
 
-    private static org.slf4j.Logger Logger = LoggerFactory.getLogger(OrderService.class);
+    private static org.slf4j.Logger logger = LoggerFactory.getLogger("jsonLogger");
 
     @Autowired
     private OrderRepository orderRepository;
@@ -35,7 +35,7 @@ public class OrderService {
                 .doOnNext(e -> orderRequestDTO.setOrderId(e.getId()))
                 .doOnNext(e ->
                 {
-                    Logger.info("Order created with Pending Status");
+                    logger.info("Order created with Pending Status");
                     // TODO => Order created event
                 });
     }
@@ -44,6 +44,7 @@ public class OrderService {
         Order order = modelMapper.map(dto, Order.class);
 
         // Call inventory service :: Stock deduct
+        logger.info("Call get data from inventory service with id=" + order.getItemId());
         inventoryGateway.getInventoryItem(order.getItemId())
                 .map(i ->
                 {
