@@ -1,8 +1,7 @@
 # Microservices workshop
 * Develop
-  * Spring Boot
-  * NodeJS
-  * Apache Kafka
+  * Spring Boot (order service)
+  * NodeJS (inventory service)
 * Working with Docker
 * Observability
   * Distributed tracing
@@ -13,8 +12,6 @@
     * Grafana
 * Testing
   * API testing with Postman
-  * Contract testing with Pact
-
 
 ## Step 1 :: Order service
 * [Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
