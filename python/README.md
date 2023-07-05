@@ -1,5 +1,6 @@
 # Workshop python flask
 * [Prometheus Flask exporter](https://github.com/rycus86/prometheus_flask_exporter)
+* [Grafana dashboard](https://github.com/rycus86/prometheus_flask_exporter/tree/master/examples/sample-signals)
 
 ```
 $pip install -r requirements.txt
