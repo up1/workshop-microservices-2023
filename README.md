@@ -23,8 +23,10 @@
 
 Step to build and run service
 ```
+$cd order
 $./mvnw clean package
 $./mvnw spring-boot:run
+$cd ..
 ```
 
 With Docker
@@ -35,17 +37,24 @@ $docker compose ps
 $docker compose logs --follow
 ```
 
-Stop all container
-```
-$docker compose down
-```
-
 Access to API specification with [Swagger v2](https://springdoc.org/v2/)
 * http://localhost:8080/swagger-ui/index.html
 
 Access to service
 * GET http://localhost:8080/order/all
 * POST http://localhost:8080/order
+
+Create inventory service
+```
+$docker compose build inventory
+$docker compose up -d inventory
+$docker compose ps
+$docker compose logs --follow
+```
+
+Access to service
+* GET http://localhost:4000/healthz
+* GET http://localhost:4000/stock/deduct/1
 
 ## Observability
 

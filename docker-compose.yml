@@ -3,7 +3,9 @@ networks:
     network-kafka: 
 services:
     order:
-      build: ./order
+      build: 
+        context: ./order
+        dockerfile: Dockerfile_slow
       image: somkiat/order
       privileged: true
       user: root
