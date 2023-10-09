@@ -1,5 +1,5 @@
 # Workshop NodeJS + EXpress
-* [express-prometheus-middleware](https://github.com/rycus86/prometheus_flask_exporter)
+* [express-prometheus-middleware](https://www.npmjs.com/package/@matteodisabatino/express-prometheus-middleware)
 * [Grafana dashboard](https://grafana.com/grafana/dashboards/16306-express-prometheus-middleware/)
 
 ```
